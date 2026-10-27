@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Event Function Sheet | Thammasat Business School</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@400;600;700&display=swap">
+<style>
+:root{color-scheme:light;--bg:#e8edf4;--pp:#fff;--ink:#17212f;--mu:#5a6a7e;--ln:#b4c2d3;--hd:#2a69b0;--tn:#eaf1fa;--ac:#1d5ca3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e151e;--pp:#17212d;--ink:#e5ecf4;--mu:#9bacc0;--ln:#34475c;--tn:#1f2d3e;--ac:#7db3ee}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e151e;--pp:#17212d;--ink:#e5ecf4;--mu:#9bacc0;--ln:#34475c;--tn:#1f2d3e;--ac:#7db3ee}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 'IBM Plex Sans Thai',system-ui,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--pp);z-index:10}
+.bar{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;padding:10px 16px;background:var(--pp);border-bottom:1px solid var(--ln)}
+.bar b{font-size:16px}.bar span{flex:1;min-width:220px;color:var(--mu);font-size:13px}
+button{font:inherit;cursor:pointer}
+.bt{padding:8px 16px;border:1px solid var(--ac);border-radius:6px;background:none;color:var(--ac);font-weight:600}
+.bt.p{background:var(--ac);color:var(--pp)}
+.bt:disabled{opacity:.6;cursor:wait}
+.paper{max-width:900px;margin:16px auto 40px;display:flex;flex-direction:column;gap:10px}
+.paper>.g,.s{background:var(--pp)}
+.hd{display:flex;gap:16px;align-items:center;padding:16px;background:var(--pp);border-bottom:3px solid var(--hd)}
+.lg{width:64px;height:64px;flex:none;display:grid;place-items:center;padding:4px;background:var(--hd);color:#fff;font-size:9px;font-weight:600;line-height:1.2;text-align:center}
+.hd h1{margin:0;font-size:28px;line-height:1.15;color:var(--ac)}
+.hd p{margin:2px 0 0;font-size:13px;color:var(--mu)}
+.hd .t2{font-size:17px;font-weight:600;color:var(--ink)}
+h2{margin:0;padding:6px 14px;background:var(--hd);color:#fff;font-size:15px;font-weight:600}
+.g{display:grid;grid-template-columns:var(--c,1fr 1fr);border:solid var(--ln);border-width:1px 0 0 1px}
+.g+.g{border-top:0}
+.tb{display:block}
+.rw{display:grid;grid-template-columns:var(--c)}
+.g>*,.rw>*{border:solid var(--ln);border-width:0 1px 1px 0;min-width:0}
+.rw,.rs{border:0}
+.w{grid-column:1/-1}
+.fl{display:flex;flex-direction:column;padding:6px 10px 8px}
+.fl>span{font-size:13px;font-weight:600;color:var(--ac)}
+input,textarea{font:inherit;color:inherit;background:transparent;border:0;padding:2px 0;width:100%;min-width:0}
+input[type=checkbox],input[type=radio]{width:18px;height:18px;margin:0;flex:none;accent-color:var(--ac)}
+textarea{min-height:3.2em;resize:vertical}
+.rw>input,.la input{padding:8px 10px;background:var(--pp)}
+.la{display:flex;align-items:center;background:var(--pp)}
+.rx{border:0;background:none;color:var(--mu);padding:8px 12px}
+.fl input,.fl textarea,.rw>input,.la input{outline:0}
+.fl:focus-within,.rw>input:focus,.la:focus-within{outline:2px solid var(--ac);outline-offset:-2px}
+.th,.rl{padding:6px 10px;background:var(--tn);font-size:13px;font-weight:600}
+.rl{display:flex;align-items:center}
+.op{display:flex;flex-wrap:wrap;gap:2px 16px;margin-top:4px}
+.o{display:inline-flex;align-items:center;gap:6px;padding:4px 0}
+.o .x{width:7em;padding:0 2px;border-bottom:1px solid var(--ln)}
+.o .x.n{width:3.6em}
+.pr{display:flex;align-items:center;gap:6px}
+.pr input{flex:1}.pr span{color:var(--mu)}
+.add{padding:8px 10px;background:var(--pp)}
+.sg{height:46px;display:flex;align-items:flex-end;margin-bottom:6px;border-bottom:1px solid var(--mu);font-size:12px;color:var(--mu)}
+.v{white-space:pre-wrap;overflow-wrap:anywhere}
+.fl .v{display:block;min-height:1.6em}
+.rw>.v{min-height:2.6em;padding:8px 10px;background:var(--pp)}
+.la .v{flex:1;padding:8px 10px}
+.pr .v{flex:1}
+.o .v{display:inline-block;min-width:3em;min-height:0;padding:0 4px;border-bottom:1px dotted var(--mu)}
+.o .v.ck{min-width:0;padding:0;border:0;font-size:17px}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:20;max-width:90vw;padding:10px 18px;border-radius:8px;background:var(--ink);color:var(--pp);opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.on{opacity:1}
+.pdf{position:absolute;left:-9999px;top:0;width:794px;background:#fff;color:#17212f;color-scheme:light;--pp:#fff;--ink:#17212f;--mu:#5a6a7e;--ln:#b4c2d3;--tn:#eaf1fa;--ac:#1d5ca3}
+.pdf .paper{max-width:none;margin:0;gap:0}
+@media(max-width:640px){.g,.rw{grid-template-columns:1fr!important}.th{display:none}.rw+.rw{border-top:6px solid var(--tn)}.paper{margin:0 0 40px}.hd h1{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="bar"><b>Event Function Sheet</b><span>กรอกแทนผู้ขอใช้บริการภายนอก แล้วดาวน์โหลดเป็น PDF ได้ทันที</span><button class="bt" id="cl" type="button">ล้างฟอร์ม</button><button class="bt p" id="pd" type="button">ดาวน์โหลด PDF</button></div>
+<form class="paper" id="f" autocomplete="off" onsubmit="return false"></form>
+<div class="toast" id="t" role="status"></div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+const $=s=>document.querySelector(s),f=$('#f'),K='tbs-fs-1';
+const I=(t='text',x='')=>`<input type="${t}" ${x}>`;
+const P=(t,p)=>I(t,`${t=='number'?'min=0 ':''}placeholder="${p}" aria-label="${p}"`);
+const D=(l,c,w)=>`<div class="fl${w?' w':''}">${l?`<span>${l}</span>`:''}${c}</div>`;
+const L=(l,c,w)=>`<label class="fl${w?' w':''}"><span>${l}</span>${c}</label>`;
+const O=(i,n)=>{const m=i.match(/^(.*?)([~#])(.*)$/),t=m?m[1]:i;return `<label class="o"><input type="${n?'radio':'checkbox'}"${n?` name="${n}"`:''}>${t}${m?m[2]=='~'?'<input class="x" aria-label="ระบุ">':`<input class="x n" type="number" min="0" aria-label="จำนวน">${m[3]}`:''}</label>`};
+const G=(l,a,n,w)=>D(l,`<div class="op">${a.map(i=>O(i,n)).join('')}</div>`,w);
+const g=(x,c,t)=>`<div class="g${t?' tb':''}"${c?` style="--c:${c}"`:''}>${x}</div>`;
+const S=(t,x)=>`<section class="s"><h2>${t}</h2>${x}</section>`;
+const TH=a=>`<div class="rw">${a.map(x=>`<div class="th">${x}</div>`).join('')}</div>`;
+const RW=(r,a)=>`<div class="rw"><div class="rl">${r}</div>${a}</div>`;
+const R=(a='')=>`<div class="rw">${P('text','เวลา เช่น 09.00–09.30')}${I('text',`placeholder="กิจกรรม" aria-label="กิจกรรม" value="${a}"`)}<div class="la">${P('text','ผู้รับผิดชอบ / หมายเหตุ')}<button type="button" class="rx no" aria-label="ลบแถว" title="ลบแถว">✕</button></div></div>`;
+const rowsDef=['ลงทะเบียน','พิธีเปิด','','','พิธีปิด / ถ่ายภาพหมู่'];
+const pair=(t,a,b,s)=>`<div class="pr">${I(t,`aria-label="${a}"`)}<span>${s}</span>${I(t,`aria-label="${b}"`)}</div>`;
+const mo=(l)=>L(l,I('number','class="mo" min="0" placeholder="0"'));
+
+f.innerHTML=`<header class="hd"><div class="lg">THAMMASAT BUSINESS SCHOOL</div><div><h1>EVENT FUNCTION SHEET</h1><p class="t2">ใบรายละเอียดงานอีเวนต์ / สัมมนา</p><p>คณะพาณิชยศาสตร์และการบัญชี มหาวิทยาลัยธรรมศาสตร์ · Thammasat Business School</p><p>กรุณากรอกให้ครบและส่งให้ผู้เกี่ยวข้องล่วงหน้าอย่างน้อย 7 วันทำการก่อนวันงาน</p></div></header>`
++g(L('เลขที่เอกสาร',I())+L('วันที่กรอก',I('date','data-d'))+L('ผู้กรอก',I()),'1fr 1fr 1fr')
++S('1. ข้อมูลทั่วไปของงาน (Event Information)',g(
+ L('ชื่องาน',I('text','class="nm1"'),1)
++L('หน่วยงาน/ภาควิชา/องค์กรผู้จัด',I())
++G('ประเภทงาน',['สัมมนา','อบรม','ปฐมนิเทศ','ประชุม','กิจกรรม นศ.','งานเลี้ยง','อื่น ๆ~'])
++D('วันที่จัดงาน',pair('date','วันที่เริ่ม','ถึงวันที่','ถึง'))
++D('เวลา (เริ่ม–สิ้นสุด)',pair('time','เวลาเริ่ม','เวลาสิ้นสุด','–'))
++L('เข้าจัดสถานที่ (Setup)',P('text','วันที่ / เวลา'))
++L('รื้อถอน (Teardown)',P('text','วันที่ / เวลา'))
++L('สถานที่ / ห้อง',I())
++L('จำนวนผู้เข้าร่วม (คน)',I('number','min="0"'))
++G('กลุ่มผู้เข้าร่วม',['นักศึกษา','บุคลากร','วิทยากร/แขก','บุคคลภายนอก','VIP'])
++G('ภาษาที่ใช้ในงาน',['ไทย','อังกฤษ','สองภาษา'])))
++S('2. ผู้รับผิดชอบและช่องทางติดต่อ (Contacts)',g(TH(['บทบาท','ชื่อ-นามสกุล','โทรศัพท์','อีเมล'])
++['เจ้าของงาน (Event Owner)','ผู้ประสานงานหน้างาน','ฝ่ายอาคารสถานที่ / โสตทัศนูปกรณ์','ติดต่อฉุกเฉินในวันงาน'].map(r=>RW(r,P('text','ชื่อ-นามสกุล')+P('tel','โทรศัพท์')+P('email','อีเมล'))).join(''),'1.3fr 1.5fr 1fr 1.5fr',1))
++S('3. กำหนดการ (Run of Show)',g(TH(['เวลา','กิจกรรม','ผู้รับผิดชอบ / หมายเหตุ'])+'<div class="rs"></div><div class="add no"><button type="button" class="bt" id="ad">+ เพิ่มแถว</button></div>','1fr 2.4fr 1.6fr',1))
++S('4. การจัดห้องและอุปกรณ์ (Room Setup &amp; AV)',g(
+ G('รูปแบบการจัดที่นั่ง',['Theater','Classroom','U-Shape','Banquet','Cocktail','อื่น ๆ~'],'seat',1)
++G('อุปกรณ์ที่ต้องการ',['ไมโครโฟน#ตัว','โปรเจกเตอร์/จอ LED','ระบบเสียง','กล้อง/ถ่ายทอดสด','Zoom/Teams','Wi-Fi','แอร์/แสง'],'',1)
++L('จำนวนที่นั่ง (ที่)',I('number','min="0"'))
++L('โพเดียม / เวที / โต๊ะ-เก้าอี้',I())))
++S('5. อาหารและเครื่องดื่ม (Food &amp; Beverage)',g(TH(['มื้อ / รายการ','เวลา','จำนวน (ที่)','เมนู / ข้อกำหนดพิเศษ'])
++['อาหารว่าง / เบรก','อาหารกลางวัน / อาหารเย็น / งานเลี้ยง','น้ำดื่ม / เครื่องดื่ม'].map(r=>RW(r,P('text','เวลา')+P('number','จำนวน (ที่)')+P('text','เมนู / ข้อกำหนดพิเศษ'))).join(''),'1.5fr .8fr .7fr 2fr',1)
++g(G('ข้อกำหนดด้านอาหาร',['ฮาลาล','มังสวิรัติ','แพ้อาหาร (ระบุ)~','อื่น ๆ~'],'',1)))
++S('6. ลงทะเบียน ประชาสัมพันธ์ และสถานที่ (Registration, PR &amp; Facilities)',g(
+ G('การลงทะเบียน',['หน้างาน','ลงทะเบียนออนไลน์ล่วงหน้า','ป้ายชื่อ / บัตรเข้างาน','เอกสารแจก'],'',1)
++G('ป้าย / ประชาสัมพันธ์',['Backdrop / Standee','ภาพนิ่ง/วิดีโอ','โซเชียลมีเดีย','ข่าวประชาสัมพันธ์','ใช้โลโก้ตามแนวทางอัตลักษณ์'],'',1)
++G('สถานที่ / ความปลอดภัย',['ที่จอดรถผู้เข้าร่วม/VIP','รปภ.','เข้าอาคารนอกเวลา','ทางเข้าผู้พิการ','ทำความสะอาด'],'',1)
++L('ข้อกำหนดพิเศษ','<textarea></textarea>',1)))
++S('7. งบประมาณ (Budget)',g(mo('ค่าสถานที่/อุปกรณ์')+mo('ค่าอาหารและเครื่องดื่ม')+mo('ค่าวิทยากร/ตอบแทน')+mo('ค่าประชาสัมพันธ์/สิ่งพิมพ์')+mo('ค่าใช้จ่ายอื่น ๆ')
++L('รวมทั้งสิ้น (บาท)',I('text','class="tot" readonly tabindex="-1" placeholder="คำนวณอัตโนมัติ"'))
++L('แหล่งงบประมาณ',I(),1),'1fr 1fr 1fr'))
++S('8. Checklist ก่อนวันงาน และการอนุมัติ (Checklist &amp; Approval)',g(G('',['ยืนยันห้องและเวลาเข้าจัดสถานที่','ส่ง Function Sheet ให้ทุกฝ่าย','ทดสอบอุปกรณ์เสียง/ภาพ','ยืนยันจำนวนผู้เข้าร่วมและอาหาร','เตรียมป้าย/เอกสาร/บัตรเข้างาน','ซักซ้อมพิธีกร/วิทยากร/กำหนดการ','ประสานความปลอดภัยและที่จอดรถ','เตรียมแผนสำรองกรณีฉุกเฉิน'],'',1))
++g(['ผู้จัดทำ','หัวหน้าหน่วยงาน/ภาควิชา','ฝ่ายอาคารสถานที่','ผู้อนุมัติ (คณบดี/รองคณบดี)'].map(r=>D(r,`<div class="sg">ลงชื่อ</div><div class="pr">( ${I('text','aria-label="ชื่อ-นามสกุล"')} )</div><div class="pr">วันที่ ${I('date','aria-label="วันที่"')}</div>`)).join(''),'1fr 1fr 1fr 1fr'));
+
+const rs=$('.rs'),els=()=>[...f.querySelectorAll('input,textarea')],isC=e=>e.type=='checkbox'||e.type=='radio';
+const setRows=a=>rs.innerHTML=a.map(R).join('');
+const tot=()=>{let t=0;f.querySelectorAll('.mo').forEach(e=>t+=+e.value||0);$('.tot').value=t?t.toLocaleString('th-TH'):''};
+const today=()=>{const d=$('[data-d]');if(!d.value)d.value=new Date().toLocaleDateString('en-CA')};
+const save=()=>{try{localStorage.setItem(K,JSON.stringify({n:rs.children.length,v:els().map(e=>isC(e)?e.checked:e.value)}))}catch(e){}};
+const load=()=>{try{const s=JSON.parse(localStorage.getItem(K));if(!s)return;setRows(Array(s.n).fill(''));els().forEach((e,i)=>{const v=s.v[i];if(v!==undefined){if(isC(e))e.checked=v;else e.value=v}})}catch(e){}};
+let tm;const toast=m=>{const t=$('#t');t.textContent=m;t.classList.add('on');clearTimeout(tm);tm=setTimeout(()=>t.classList.remove('on'),3500)};
+
+setRows(rowsDef);load();today();tot();
+f.addEventListener('input',e=>{const t=e.target;if(t.classList.contains('x')&&t.value)t.closest('.o').querySelector('input').checked=true;tot();save()});
+f.addEventListener('click',e=>{const x=e.target.closest('.rx');if(x){x.closest('.rw').remove();save()}});
+$('#ad').onclick=()=>{rs.insertAdjacentHTML('beforeend',R());save()};
+let cf;$('#cl').onclick=function(){if(!cf){this.textContent='กดอีกครั้งเพื่อล้างทั้งหมด';cf=setTimeout(()=>{cf=0;this.textContent='ล้างฟอร์ม'},3000)}else{clearTimeout(cf);cf=0;this.textContent='ล้างฟอร์ม';f.reset();setRows(rowsDef);today();tot();save()}};
+
+$('#pd').onclick=async function(){
+ const b=this,nm=$('.nm1');
+ if(!nm.value.trim()){nm.focus();toast('กรอกชื่องานก่อนดาวน์โหลด PDF');return}
+ const dl=window.claude?await claude.use('downloads'):null;
+ if(!dl){toast('มุมมองนี้ดาวน์โหลดไฟล์ไม่ได้ ลองเปิดผ่าน claude.ai');return}
+ b.disabled=true;b.textContent='กำลังสร้าง PDF…';
+ const h=document.createElement('div');h.className='pdf';
+ const c=f.cloneNode(true),o=els(),k=[...c.querySelectorAll('input,textarea')];
+ o.forEach((e,i)=>{
+  let s=e.value,ck=0;
+  if(isC(e)){s=e.checked?'☑':'☐';ck=1}
+  else if(e.type=='date')s=e.value?new Date(e.value).toLocaleDateString('th-TH',{day:'numeric',month:'short',year:'numeric'}):'';
+  else if(e.classList.contains('mo'))s=e.value?(+e.value).toLocaleString('th-TH'):'';
+  const n=document.createElement('span');n.className='v'+(ck?' ck':'');n.textContent=s;k[i].replaceWith(n);
+ });
+ c.querySelectorAll('.no').forEach(e=>e.remove());
+ h.appendChild(c);document.body.appendChild(h);
+ try{
+  await document.fonts.ready;
+  const d=new window.jspdf.jsPDF({unit:'mm',format:'a4'});let y=10;
+  for(const s of c.children){
+   const cv=await html2canvas(s,{scale:2,backgroundColor:'#fff',windowWidth:794}),ht=cv.height*190/cv.width;
+   if(y+ht>287&&y>10){d.addPage();y=10}
+   d.addImage(cv,'PNG',10,y,190,ht);y+=ht+2;
+  }
+  await dl.save({filename:`FunctionSheet_${nm.value.trim().replace(/[\\/:*?"<>|]/g,'-').slice(0,60)}.pdf`,data:d.output('blob')});
+  toast('ดาวน์โหลด PDF แล้ว');
+ }catch(e){toast(e&&e.code=='declined'?'ยกเลิกการดาวน์โหลด':'สร้าง PDF ไม่สำเร็จ ลองอีกครั้ง')}
+ finally{h.remove();b.disabled=false;b.textContent='ดาวน์โหลด PDF'}
+};
+</script>
+</body>
+</html>
